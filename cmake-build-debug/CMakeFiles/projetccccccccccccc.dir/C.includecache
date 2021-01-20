@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/ibra/Desktop/projetccccccccccccc/affichage.h
+stdio.h
+-
+string.h
+-
+stdlib.h
+-
+conio.h
+-
+
+C:/Users/ibra/Desktop/projetccccccccccccc/main.c
+main.h
+C:/Users/ibra/Desktop/projetccccccccccccc/main.h
+
+C:/Users/ibra/Desktop/projetccccccccccccc/main.h
+stdio.h
+-
+string.h
+-
+stdlib.h
+-
+ctype.h
+-
+affichage.h
+C:/Users/ibra/Desktop/projetccccccccccccc/affichage.h
+
