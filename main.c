@@ -7,7 +7,6 @@
 
 int main()
 {
-    //afficherParOrdre();
 
     return 0;
 }

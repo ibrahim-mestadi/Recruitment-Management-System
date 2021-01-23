@@ -7,6 +7,7 @@
 
 
 
+
 void afficherMessageAuCentre(char *message)
 {
     int len=0;
@@ -44,3 +45,4 @@ void BonjoureMsg()
     printf("\n\n\n\t\t\t Enter any key to continue.....");
     getch();
 }
+

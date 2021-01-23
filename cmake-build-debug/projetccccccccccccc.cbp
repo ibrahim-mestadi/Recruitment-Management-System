@@ -87,6 +87,9 @@
 		<Unit filename="C:/Users/ibra/Desktop/projetccccccccccccc/main.h">
 			<Option target="projetccccccccccccc"/>
 		</Unit>
+		<Unit filename="C:/Users/ibra/Desktop/projetccccccccccccc/offres.h">
+			<Option target="projetccccccccccccc"/>
+		</Unit>
 		<Unit filename="C:/Users/ibra/Desktop/projetccccccccccccc/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

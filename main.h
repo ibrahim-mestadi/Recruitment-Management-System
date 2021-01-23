@@ -14,7 +14,7 @@
 #define MAX_SPECIALITE 10
 #define MAX_CIN 7
 #define  Malloc(type) (*type)malloc(type)
-#define  FILE_BASE_CANDIDAT "candidat.bin"
+#define  FILE_BASE_CANDIDAT "candidats.bin"
 
 typedef struct date
 {
@@ -207,7 +207,6 @@ void SupprimeCandidat()
 }
 
 void modifyCandidat() {
-    int tv=0;
     printf("\n\t\t\t entrer le CIN du candidat du a Modifier");
     char cin[MAX_CIN + 1];
     scanf("%s", cin);
@@ -218,7 +217,6 @@ void modifyCandidat() {
         if (strcmp(candidat.CIN, cin) != 0) {
             fwrite(&candidat, sizeof(candidat), 1, p);
         } else {
-            tv=1;
             printf("\n\t\t\t pour modifier le nom choisissez 1 ");
             printf("\n\t\t\t pour modifier le prenom choisissez 2 ");
             printf("\n\t\t\t pour modifier le birthday choisissez 3 ");
@@ -234,6 +232,7 @@ void modifyCandidat() {
                     char nom[MAX_NOM_PRENOM];
                     scanf("%s", nom);
                     strcpy(candidat.nom, nom);
+                    fwrite(&candidat, sizeof(candidat), 1, p);
                     printf("nom est bien Modifie");
                     break;
                 case 2:
@@ -241,6 +240,7 @@ void modifyCandidat() {
                     char prenom[MAX_NOM_PRENOM];
                     scanf("%s", prenom);
                     strcpy(candidat.prenom, prenom);
+                    fwrite(&candidat, sizeof(candidat), 1, p);
                     printf("prenom est bien Modifie");
                     break;
                 case 3:
@@ -254,6 +254,7 @@ void modifyCandidat() {
                         if (e == 0)
                             printf("\n\t\t\t veuillez entrer un date valide ");
                     } while (!e);
+                    fwrite(&candidat, sizeof(candidat), 1, p);
                     printf(" \n\t\t\t la date de naissance  est bien Modifie");
                     break;
                 case 4:
@@ -261,72 +262,75 @@ void modifyCandidat() {
                     char adress[MAX_ADRESS];
                     scanf("%s",adress);
                     strcpy(candidat.adress,adress);
+                    fwrite(&candidat, sizeof(candidat), 1, p);
                     printf("\n\t\t\t  adress modifie ");
+
                     break;
 
             }
         }
-        if(tv!=0)
-        {
-            printf("candidat makaynch");
-        }
 
 
-
-    }
-}
-
-
-typedef struct _liste
-{
-    candidatInfo *candidat;
-    struct _liste *next;
-}listeCandidat;
-
-
-listeCandidat* insert(candidatInfo *cd,listeCandidat *head)
-{
-    listeCandidat *newCandidat=(listeCandidat*)malloc(sizeof(listeCandidat));
-    newCandidat->candidat=cd;
-    listeCandidat *p=head;
-    if(!p ,stricmp(cd->nom,p->candidat->nom))
-    {
-        newCandidat->next=p;
-        head=newCandidat;
-    }
-    else
-    {
-        while(p->next && (stricmp(newCandidat->candidat->nom,p->next->candidat->nom))>0)
-        {
-            p=p->next;
-        }
-        p->next=newCandidat;
-    }
-    return head;
-}
-
-void afficherParOrdre()
-{
-    listeCandidat *head=NULL;
-    candidatInfo *cdi;
-    FILE *fp=fopen(FILE_BASE_CANDIDAT,"ab+");
-    while(fread(cdi,sizeof(candidatInfo),1,fp))
-    {
-        head=insert(cdi,head);
     }
     fclose(fp);
-    listeCandidat *p=head;
-    if(head==NULL)
-    {printf("zbiiiiii"); }
+    fclose(p);
+    remove(FILE_BASE_CANDIDAT);
+    rename("p.bin",FILE_BASE_CANDIDAT);
+}
 
-    while(head!=NULL)
+typedef struct _Tree
+{
+    candidatInfo candidat;
+    struct _Tree *g,*d;
+
+}TreeCandidats;
+
+TreeCandidats *addtoTree(candidatInfo cd,TreeCandidats *rac)
+{
+
+    if(rac!=NULL)
+        {
+            if((stricmp(rac->candidat.nom,cd.nom)<0))
+            {
+                rac->d=addtoTree(cd,rac->d);
+            }
+            else
+            {
+                rac->g=addtoTree(cd,rac->g);
+            }
+        }
+    else
+        {
+            rac=(TreeCandidats*)malloc(sizeof(TreeCandidats));
+            rac->candidat=cd;
+            rac->g=rac->g=NULL;
+            printf("DONE\n");
+        }
+    return rac;
+    }
+void explore(TreeCandidats *r)
+{
+    if(r!=NULL)
     {
-        printf(head->candidat->nom);
+        explore(r->g);
+        printf(" \n\t\t\t %s  %s   %s  ",r->candidat.nom,r->candidat.prenom,r->candidat.code);
+        explore(r->d);
     }
 }
 
+void afficherParOrdreAlph()
+{
+    FILE *fp=fopen(FILE_BASE_CANDIDAT,"rb");
+    candidatInfo cd;
+    TreeCandidats *rac=NULL;
+    while(fread(&cd, sizeof(candidatInfo),1,fp))
+    {
 
-
+        rac=addtoTree(cd,rac);
+    }
+    explore(rac);
+    fclose(fp);
+}
 
 
 
