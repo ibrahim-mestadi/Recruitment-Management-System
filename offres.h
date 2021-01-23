@@ -1,8 +1,19 @@
-//
-// Created by ibra on 23/01/2021.
-//
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include "main.h"
+#define  MAX_ENTP_NAME 30
 
-#ifndef PROJETCCCCCCCCCCCCC_OFFRES_H
-#define PROJETCCCCCCCCCCCCC_OFFRES_H
 
-#endif //PROJETCCCCCCCCCCCCC_OFFRES_H
+typedef offres {
+    int offres_index;
+    char entrep_name[MAX_ENTP_NAME];
+    int numeroOffre;
+
+}offre;
+
+
+int reccord(candidatInfo cd)
+{
+    return 2*
+}
