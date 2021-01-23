@@ -303,7 +303,7 @@ TreeCandidats *addtoTree(candidatInfo cd,TreeCandidats *rac)
         {
             rac=(TreeCandidats*)malloc(sizeof(TreeCandidats));
             rac->candidat=cd;
-            rac->g=rac->g=NULL;
+            rac->g=rac->d=NULL;
             printf("DONE\n");
         }
     return rac;

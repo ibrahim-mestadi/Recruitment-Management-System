@@ -1,9 +1,8 @@
-//
-// Created by ibra on 17/01/2021.
-//
+#include "recrutement.h"
 
 
-#include "main.h"
+
+
 
 int main()
 {

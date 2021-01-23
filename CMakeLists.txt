@@ -7,4 +7,4 @@ include_directories(.)
 
 add_executable(projetccccccccccccc
         main.c
-        main.h affichage.h offres.h)
+        main.h affichage.h offres.h recrutement.h)
