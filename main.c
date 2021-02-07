@@ -2,10 +2,8 @@
 
 
 
-
-
 int main()
 {
-
+    Bonjourmsg()
     return 0;
 }
