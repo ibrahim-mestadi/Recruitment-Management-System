@@ -4,6 +4,6 @@
 
 int main()
 {
-    Bonjourmsg()
+    BonjoureMsg();
     return 0;
 }

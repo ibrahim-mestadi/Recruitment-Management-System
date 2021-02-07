@@ -4,4 +4,6 @@
 CMakeFiles/projetccccccccccccc.dir/main.c.obj: ../affichage.h
 CMakeFiles/projetccccccccccccc.dir/main.c.obj: ../main.c
 CMakeFiles/projetccccccccccccc.dir/main.c.obj: ../main.h
+CMakeFiles/projetccccccccccccc.dir/main.c.obj: ../offres.h
+CMakeFiles/projetccccccccccccc.dir/main.c.obj: ../recrutement.h
 

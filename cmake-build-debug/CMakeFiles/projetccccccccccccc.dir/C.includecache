@@ -17,8 +17,8 @@ conio.h
 -
 
 C:/Users/pc/Desktop/projet c/projetc/main.c
-main.h
-C:/Users/pc/Desktop/projet c/projetc/main.h
+recrutement.h
+C:/Users/pc/Desktop/projet c/projetc/recrutement.h
 
 C:/Users/pc/Desktop/projet c/projetc/main.h
 stdio.h
@@ -31,4 +31,26 @@ ctype.h
 -
 affichage.h
 C:/Users/pc/Desktop/projet c/projetc/affichage.h
+
+C:/Users/pc/Desktop/projet c/projetc/offres.h
+stdio.h
+-
+string.h
+-
+stdlib.h
+-
+time.h
+-
+main.h
+C:/Users/pc/Desktop/projet c/projetc/main.h
+
+C:/Users/pc/Desktop/projet c/projetc/recrutement.h
+stdio.h
+-
+string.h
+-
+stdlib.h
+-
+offres.h
+C:/Users/pc/Desktop/projet c/projetc/offres.h
 
